@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <Folder Include="Abstractions\" />
+    <Folder Include="UseCase\" />
+    <Folder Include="UseCase\Continents\" />
   </ItemGroup>
 
   <PropertyGroup>

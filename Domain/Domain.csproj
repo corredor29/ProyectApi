@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Entities\Continents\" />
+    <Folder Include="ValueObject\" />
+    <Folder Include="ValueObject\Continents\" />
+  </ItemGroup>
+
 </Project>

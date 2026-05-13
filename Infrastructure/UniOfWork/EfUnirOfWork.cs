@@ -1,7 +1,6 @@
-using System;
-using  Infrastructure.Context;
 using Application.Abstractions;
-using Microsoft.EntityFrameworkCore;
+using Infrastructure.Context;
+using Infrastructure.Repositories;
 
 namespace Infrastructure.UniOfWork;
 
@@ -9,10 +8,14 @@ public class EfUnirOfWork : IUniOfWork
 {
     private readonly AppDbContext _contextdb;
 
-    public EfUnirOfWork (AppDbContext db)
+    public IContinent Continent { get; }
+
+    public EfUnirOfWork(AppDbContext db)
     {
         _contextdb = db;
+        Continent = new ContinentRepository(db);
     }
+
     public Task<int> SaveChangesAsync(CancellationToken ct = default)
         => _contextdb.SaveChangesAsync(ct);
 
@@ -30,5 +33,5 @@ public class EfUnirOfWork : IUniOfWork
             await tx.RollbackAsync(ct);
             throw;
         }
-    }    
+    }
 }
